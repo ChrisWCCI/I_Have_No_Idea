@@ -25,6 +25,7 @@ public class VirtualPetApp {
             System.out.println("2. Give the pet some water");
             System.out.println("3. Play with the pet");
             System.out.println("4. Do nothing");
+            System.out.println("5. Exit");
             int choice = scanner.nextInt();
             
             //Handle user input
@@ -34,8 +35,10 @@ public class VirtualPetApp {
                 pet.water();
             } else if (choice == 3) {
                 pet.play();
-            } else {
+            } else if (choice == 4) {
                 pet.confuse();
+            } else if (choice == 5) {
+                break;
             }
             
             //Simulate the passage of time
