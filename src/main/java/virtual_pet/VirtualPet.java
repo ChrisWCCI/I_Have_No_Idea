@@ -7,6 +7,21 @@ private class VirtualPet {
     private int boredomLevel;
 
     /**
+     * Create a new VirtualPet with the given name, hunger level, thirst level, and boredom level.
+     * 
+     * @param name The name of the pet.
+     * @param hungerLevel The starting hunger level of the pet.
+     * @param thirstLevel The starting thirst level of the pet.
+     * @param boredomLevel The starting boredom level of the pet.
+     */
+    public VirtualPet(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
+        this.name = name;
+        this.hungerLevel = hungerLevel;
+        this.thirstLevel = thirstLevel;
+        this.boredomLevel = boredomLevel;
+    }
+
+    /**
      * Get the name of the pet.
      * 
      * @return The current name of the pet.
