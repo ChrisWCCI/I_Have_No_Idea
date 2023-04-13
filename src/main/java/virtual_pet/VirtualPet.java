@@ -6,6 +6,9 @@ private class VirtualPet {
     private int thirstLevel;
     private int boredomLevel;
 
+    private int minStatLevel = 0;
+    private int maxStatLevel = 100;
+
     /**
      * Create a new VirtualPet with the given name, hunger level, thirst level, and boredom level.
      * 
@@ -100,8 +103,8 @@ private class VirtualPet {
      */
     public void feed(int amount) {
         hungerLevel -= amount;
-        if (hungerLevel < 0) {
-            hungerLevel = 0;
+        if (hungerLevel < minStatLevel) {
+            hungerLevel = minStatLevel;
         }
     }
     
@@ -112,8 +115,8 @@ private class VirtualPet {
      */
     public void water(int amount) {
         thirstLevel -= amount;
-        if (thirstLevel < 0) {
-            thirstLevel = 0;
+        if (thirstLevel < minStatLevel) {
+            thirstLevel = minStatLevel;
         }
     }
     
@@ -125,18 +128,38 @@ private class VirtualPet {
      */
     public void play(int amount) {
         boredomLevel -= amount;
-        if (boredomLevel < 0) {
-            boredomLevel = 0;
+        if (boredomLevel < minStatLevel) {
+            boredomLevel = minStatLevel;
         }
 
         hungerLevel += 5;
-        if (hungerLevel > 100) {
-            hungerLevel = 100;
+        if (hungerLevel > maxStatLevel) {
+            hungerLevel = maxStatLevel;
         }
 
         thirstLevel += 5;
-        if (thirstLevel > 100) {
-            thirstLevel = 100;
+        if (thirstLevel > maxStatLevel) {
+            thirstLevel = maxStatLevel;
+        }
+    }
+
+    /**
+     * Increases all the pet's stats by 5 each
+     */
+    public void stay() {
+        boredomLevel += 5;
+        if (boredomLevel > maxStatLevel) {
+            boredomLevel = maxStatLevel;
+        }
+
+        hungerLevel += 5;
+        if (hungerLevel > maxStatLevel) {
+            hungerLevel = maxStatLevel;
+        }
+
+        thirstLevel += 5;
+        if (thirstLevel > maxStatLevel) {
+            thirstLevel = maxStatLevel;
         }
     }
 }
