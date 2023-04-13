@@ -134,8 +134,8 @@ private class VirtualPet {
     }
     
     /**
-     * Lowers the pet's boredom level by a certain amount.
-     * Also increases hunger and thirst levels by 5 each.
+     * Lowers the pet's boredom level by default amount.
+     * Also increases hunger and thirst levels by default amount.
      * 
      * @param amount The amount to lower the boredom level by.
      */
