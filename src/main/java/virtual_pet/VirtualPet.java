@@ -77,4 +77,40 @@ private class VirtualPet {
     public void setBoredomLevel(int boredomLevel) {
         this.boredomLevel = boredomLevel;
     }
+
+    /**
+     * Lower the pet's hunger level by a certain amount.
+     * 
+     * @param amount The amount to lower the hunger level by.
+     */
+    public void feed(int amount) {
+        hungerLevel -= amount;
+        if (hungerLevel < 0) {
+            hungerLevel = 0;
+        }
+    }
+    
+    /**
+     * Lower the pet's thirst level by a certain amount.
+     * 
+     * @param amount The amount to lower the thirst level by.
+     */
+    public void water(int amount) {
+        thirstLevel -= amount;
+        if (thirstLevel < 0) {
+            thirstLevel = 0;
+        }
+    }
+    
+    /**
+     * Lower the pet's boredom level by a certain amount.
+     * 
+     * @param amount The amount to lower the boredom level by.
+     */
+    public void play(int amount) {
+        boredomLevel -= amount;
+        if (boredomLevel < 0) {
+            boredomLevel = 0;
+        }
+    }
 }
