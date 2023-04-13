@@ -8,6 +8,7 @@ private class VirtualPet {
 
     private int minStatLevel = 0;
     private int maxStatLevel = 100;
+    private int statChangeAmt = 5;
 
     /**
      * Create a new VirtualPet with the given name, hunger level, thirst level, and boredom level.
@@ -24,6 +25,18 @@ private class VirtualPet {
         this.boredomLevel = boredomLevel;
     }
 
+    /**
+     * Constructs a new VirtualPet object with the given name and initial attribute values.
+     *
+     * @param name the name of the pet
+     */
+    public VirtualPet(String name) {
+        this.name = name;
+        this.hungerLevel = 50; // set initial hunger level to 50
+        this.thirstLevel = 50; // set initial thirst level to 50
+        this.boredomLevel = 50; // set initial boredom level to 50
+    }
+    
     /**
      * Get the name of the pet.
      * 
@@ -121,45 +134,52 @@ private class VirtualPet {
     }
     
     /**
-     * Lowers the pet's boredom level by a certain amount.
-     * Also increases hunger and thirst levels by 5 each.
+     * Lowers the pet's boredom level by default amount.
+     * Also increases hunger and thirst levels by default amount.
      * 
      * @param amount The amount to lower the boredom level by.
      */
-    public void play(int amount) {
-        boredomLevel -= amount;
+    public void play() {
+        boredomLevel -= statChangeAmt;
         if (boredomLevel < minStatLevel) {
             boredomLevel = minStatLevel;
         }
 
-        hungerLevel += 5;
+        hungerLevel += statChangeAmt;
         if (hungerLevel > maxStatLevel) {
             hungerLevel = maxStatLevel;
         }
 
-        thirstLevel += 5;
+        thirstLevel += statChangeAmt;
         if (thirstLevel > maxStatLevel) {
             thirstLevel = maxStatLevel;
         }
     }
 
     /**
-     * Increases all the pet's stats by 5 each
+     * Increases all the pet's stats by 5 each.
      */
     public void tick() {
-        boredomLevel += 5;
+        boredomLevel += statChangeAmt;
         if (boredomLevel > maxStatLevel) {
             boredomLevel = maxStatLevel;
         }
 
-        hungerLevel += 5;
+        hungerLevel += statChangeAmt;
         if (hungerLevel > maxStatLevel) {
             hungerLevel = maxStatLevel;
         }
 
-        thirstLevel += 5;
+        thirstLevel += statChangeAmt;
         if (thirstLevel > maxStatLevel) {
             thirstLevel = maxStatLevel;
         }
+    }
+
+    /**
+     * Handler for invalid user entry.
+     */
+    public void confuse() {
+        System.out.println(name + " looks at you confused...");
     }
 }
