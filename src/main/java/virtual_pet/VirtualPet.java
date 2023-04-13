@@ -146,7 +146,7 @@ private class VirtualPet {
     /**
      * Increases all the pet's stats by 5 each
      */
-    public void stay() {
+    public void tick() {
         boredomLevel += 5;
         if (boredomLevel > maxStatLevel) {
             boredomLevel = maxStatLevel;
