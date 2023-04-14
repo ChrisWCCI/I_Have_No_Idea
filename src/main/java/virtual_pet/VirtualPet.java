@@ -9,6 +9,7 @@ public class VirtualPet {
     private int minStatLevel = 0;
     private int maxStatLevel = 100;
     private int statChangeAmt = 5;
+    private int statChangeMultiplier = 4;
 
     /**
      * Create a new VirtualPet with the given name, hunger level, thirst level, and
@@ -117,7 +118,7 @@ public class VirtualPet {
      * @param amount The amount to lower the hunger level by.
      */
     public void feed() {
-        hungerLevel -= statChangeAmt * 2;
+        hungerLevel -= statChangeAmt * statChangeMultiplier;
         if (hungerLevel < minStatLevel) {
             hungerLevel = minStatLevel;
         }
@@ -129,7 +130,7 @@ public class VirtualPet {
      * @param amount The amount to lower the thirst level by.
      */
     public void water() {
-        thirstLevel -= statChangeAmt * 2;
+        thirstLevel -= statChangeAmt * statChangeMultiplier;
         if (thirstLevel < minStatLevel) {
             thirstLevel = minStatLevel;
         }
@@ -142,19 +143,9 @@ public class VirtualPet {
      * @param amount The amount to lower the boredom level by.
      */
     public void play() {
-        boredomLevel -= statChangeAmt * 2;
+        boredomLevel -= statChangeAmt * statChangeMultiplier;
         if (boredomLevel < minStatLevel) {
             boredomLevel = minStatLevel;
-        }
-
-        hungerLevel += statChangeAmt;
-        if (hungerLevel > maxStatLevel) {
-            hungerLevel = maxStatLevel;
-        }
-
-        thirstLevel += statChangeAmt;
-        if (thirstLevel > maxStatLevel) {
-            thirstLevel = maxStatLevel;
         }
     }
 
