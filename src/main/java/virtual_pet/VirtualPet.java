@@ -1,6 +1,6 @@
-package virtual_pet
+package virtual_pet;
 
-private class VirtualPet {
+public class VirtualPet {
     private String name;
     private int hungerLevel;
     private int thirstLevel;
@@ -9,13 +9,15 @@ private class VirtualPet {
     private int minStatLevel = 0;
     private int maxStatLevel = 100;
     private int statChangeAmt = 5;
+    private int statChangeMultiplier = 4;
 
     /**
-     * Create a new VirtualPet with the given name, hunger level, thirst level, and boredom level.
+     * Create a new VirtualPet with the given name, hunger level, thirst level, and
+     * boredom level.
      * 
-     * @param name The name of the pet.
-     * @param hungerLevel The starting hunger level of the pet.
-     * @param thirstLevel The starting thirst level of the pet.
+     * @param name         The name of the pet.
+     * @param hungerLevel  The starting hunger level of the pet.
+     * @param thirstLevel  The starting thirst level of the pet.
      * @param boredomLevel The starting boredom level of the pet.
      */
     public VirtualPet(String name, int hungerLevel, int thirstLevel, int boredomLevel) {
@@ -26,7 +28,8 @@ private class VirtualPet {
     }
 
     /**
-     * Constructs a new VirtualPet object with the given name and initial attribute values.
+     * Constructs a new VirtualPet object with the given name and initial attribute
+     * values.
      *
      * @param name the name of the pet
      */
@@ -36,7 +39,7 @@ private class VirtualPet {
         this.thirstLevel = 50; // set initial thirst level to 50
         this.boredomLevel = 50; // set initial boredom level to 50
     }
-    
+
     /**
      * Get the name of the pet.
      * 
@@ -45,7 +48,7 @@ private class VirtualPet {
     public String getName() {
         return name;
     }
-    
+
     /**
      * Set the name of the pet.
      * 
@@ -63,7 +66,7 @@ private class VirtualPet {
     public int getHungerLevel() {
         return hungerLevel;
     }
-    
+
     /**
      * Set the hunger level of the pet.
      * 
@@ -72,7 +75,7 @@ private class VirtualPet {
     public void setHungerLevel(int hungerLevel) {
         this.hungerLevel = hungerLevel;
     }
-    
+
     /**
      * Get the current thirst level of the pet.
      * 
@@ -81,7 +84,7 @@ private class VirtualPet {
     public int getThirstLevel() {
         return thirstLevel;
     }
-    
+
     /**
      * Set the thirst level of the pet.
      * 
@@ -90,7 +93,7 @@ private class VirtualPet {
     public void setThirstLevel(int thirstLevel) {
         this.thirstLevel = thirstLevel;
     }
-    
+
     /**
      * Get the current boredom level of the pet.
      * 
@@ -99,7 +102,7 @@ private class VirtualPet {
     public int getBoredomLevel() {
         return boredomLevel;
     }
-    
+
     /**
      * Set the boredom level of the pet.
      * 
@@ -114,25 +117,25 @@ private class VirtualPet {
      * 
      * @param amount The amount to lower the hunger level by.
      */
-    public void feed(int amount) {
-        hungerLevel -= amount;
+    public void feed() {
+        hungerLevel -= statChangeAmt * statChangeMultiplier;
         if (hungerLevel < minStatLevel) {
             hungerLevel = minStatLevel;
         }
     }
-    
+
     /**
      * Lower the pet's thirst level by a certain amount.
      * 
      * @param amount The amount to lower the thirst level by.
      */
-    public void water(int amount) {
-        thirstLevel -= amount;
+    public void water() {
+        thirstLevel -= statChangeAmt * statChangeMultiplier;
         if (thirstLevel < minStatLevel) {
             thirstLevel = minStatLevel;
         }
     }
-    
+
     /**
      * Lowers the pet's boredom level by default amount.
      * Also increases hunger and thirst levels by default amount.
@@ -140,19 +143,9 @@ private class VirtualPet {
      * @param amount The amount to lower the boredom level by.
      */
     public void play() {
-        boredomLevel -= statChangeAmt;
+        boredomLevel -= statChangeAmt * statChangeMultiplier;
         if (boredomLevel < minStatLevel) {
             boredomLevel = minStatLevel;
-        }
-
-        hungerLevel += statChangeAmt;
-        if (hungerLevel > maxStatLevel) {
-            hungerLevel = maxStatLevel;
-        }
-
-        thirstLevel += statChangeAmt;
-        if (thirstLevel > maxStatLevel) {
-            thirstLevel = maxStatLevel;
         }
     }
 

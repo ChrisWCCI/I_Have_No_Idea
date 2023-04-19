@@ -6,40 +6,45 @@ public class VirtualPetApp {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        
-        //Create a new VirtualPet object
+
+        // Create a new VirtualPet object
         VirtualPet pet = new VirtualPet("Fido");
 
-        //Game loop
+        // Game loop
         while (true) {
-            //Output pet status
+            // Output pet status
             System.out.println("Name: " + pet.getName());
             System.out.println("Hunger: " + pet.getHungerLevel());
             System.out.println("Thirst: " + pet.getThirstLevel());
             System.out.println("Boredom: " + pet.getBoredomLevel());
             System.out.println();
-            
-            //Ask for user input
+
+            // Ask for user input
             System.out.println("What would you like to do?");
             System.out.println("1. Feed the pet");
             System.out.println("2. Give the pet some water");
             System.out.println("3. Play with the pet");
             System.out.println("4. Do nothing");
+            System.out.println("5. Exit");
             int choice = scanner.nextInt();
-            
-            //Handle user input
+
+            // Handle user input
             if (choice == 1) {
                 pet.feed();
             } else if (choice == 2) {
                 pet.water();
             } else if (choice == 3) {
                 pet.play();
-            } else {
+            } else if (choice == 4) {
                 pet.confuse();
+            } else if (choice == 5) {
+                break;
             }
-            
-            //Simulate the passage of time
+
+            // Simulate the passage of time
             pet.tick();
         }
+
+        scanner.close();
     }
 }
