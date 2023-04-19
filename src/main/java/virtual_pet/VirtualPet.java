@@ -202,7 +202,6 @@ public class VirtualPet {
      * written text status for the pet.
      */
     public void printPetStatus() {
-        // Output pet status
         System.out.println("Name: " + this.getName());
 
         if (this.getHungerLevel() >= problemLevel) {
