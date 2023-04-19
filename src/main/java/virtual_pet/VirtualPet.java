@@ -1,5 +1,7 @@
 package virtual_pet;
 
+import java.util.Random;
+
 public class VirtualPet {
     private String name;
     private int hungerLevel;
@@ -8,8 +10,11 @@ public class VirtualPet {
 
     private int minStatLevel = 0;
     private int maxStatLevel = 100;
+    private int problemLevel = maxStatLevel / 2;
     private int statChangeAmt = 5;
     private int statChangeMultiplier = 4;
+
+    private Random ran = new Random();
 
     /**
      * Create a new VirtualPet with the given name, hunger level, thirst level, and
@@ -167,6 +172,22 @@ public class VirtualPet {
         if (thirstLevel > maxStatLevel) {
             thirstLevel = maxStatLevel;
         }
+
+        selfCare();
+    }
+
+    /**
+     * Chance for the pet to take care of
+     * urgent problems itself.
+     */
+    private void selfCare() {
+        if (ran.nextInt(maxStatLevel) >= problemLevel) {
+            if (thirstLevel >= hungerLevel && thirstLevel >= problemLevel) {
+                water();
+            } else if (hungerLevel >= problemLevel) {
+                feed();
+            }
+        }
     }
 
     /**
@@ -174,5 +195,48 @@ public class VirtualPet {
      */
     public void confuse() {
         System.out.println(name + " looks at you confused...");
+    }
+
+    /**
+     * Print out the ASCII art or
+     * written text status for the pet.
+     */
+    public void printPetStatus() {
+        // Output pet status
+        System.out.println("Name: " + this.getName());
+
+        if (this.getHungerLevel() >= problemLevel) {
+            System.out.println("   ,    /-.");
+            System.out.println("   ((___/ __>");
+            System.out.println("   /      }");
+            System.out.println("   \\ .--.(    ___");
+            System.out.println("    \\\\   \\\\  /___\\");
+            System.out.println();
+        } else {
+            System.out.println("Hunger: " + this.getHungerLevel());
+        }
+
+        if (this.getThirstLevel() >= problemLevel) {
+            System.out.println("   / \\__");
+            System.out.println("  (    @\\___");
+            System.out.println("  /         O");
+            System.out.println(" /   (_____/");
+            System.out.println("/_____/   U");
+            System.out.println();
+        } else {
+            System.out.println("Thirst: " + this.getThirstLevel());
+        }
+
+        if (this.getBoredomLevel() >= problemLevel) {
+            System.out.println("              /\\___/\\");
+            System.out.println("              `)9 9('");
+            System.out.println("              {_:Y:.}_");
+            System.out.println("    ----------( )U-'( )----------");
+            System.out.println("              ```   '''");
+        } else {
+            System.out.println("Boredom: " + this.getBoredomLevel());
+        }
+
+        System.out.println();
     }
 }

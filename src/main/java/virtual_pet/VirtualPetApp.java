@@ -13,11 +13,7 @@ public class VirtualPetApp {
         // Game loop
         while (true) {
             // Output pet status
-            System.out.println("Name: " + pet.getName());
-            System.out.println("Hunger: " + pet.getHungerLevel());
-            System.out.println("Thirst: " + pet.getThirstLevel());
-            System.out.println("Boredom: " + pet.getBoredomLevel());
-            System.out.println();
+            pet.printPetStatus();
 
             // Ask for user input
             System.out.println("What would you like to do?");
