@@ -14,7 +14,7 @@ public class VirtualPetShelter {
      *
      * @param pet The VirtualPet object to be added.
      */
-    public void admitPet(VirtualPet pet) {
+    public void admit(VirtualPet pet) {
         pets.put(pet.getName(), pet);
     }
 
@@ -43,7 +43,7 @@ public class VirtualPetShelter {
      * @param name The name of the VirtualPet object to be removed.
      * @return The VirtualPet object that was removed from the shelter.
      */
-    public VirtualPet adoptPet(String name) {
+    public VirtualPet adopt(String name) {
         return pets.remove(name);
     }
 
@@ -81,5 +81,13 @@ public class VirtualPetShelter {
         for (VirtualPet pet : pets.values()) {
             pet.tick();
         }
+    }
+
+    /**
+     * Handler for invalid user entry
+     */
+    public void confuseAllPets() {
+        System.out.println("The pets look at you confused...");
+        this.tickAllPets();
     }
 }
