@@ -1,0 +1,85 @@
+package virtual_pet;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class VirtualPetShelter {
+
+    private Map<String, VirtualPet> pets = new HashMap<>();
+
+    /**
+     * Adds a new pet to the shelter.
+     *
+     * @param pet The VirtualPet object to be added.
+     */
+    public void admitPet(VirtualPet pet) {
+        pets.put(pet.getName(), pet);
+    }
+
+    /**
+     * Returns the VirtualPet object with the given name.
+     *
+     * @param name The name of the VirtualPet object to be retrieved.
+     * @return The VirtualPet object with the given name.
+     */
+    public VirtualPet getPet(String name) {
+        return pets.get(name);
+    }
+
+    /**
+     * Returns a list of all the VirtualPet objects in the shelter.
+     *
+     * @return A list of all the VirtualPet objects in the shelter.
+     */
+    public List<VirtualPet> getAllPets() {
+        return new ArrayList<>(pets.values());
+    }
+
+    /**
+     * Removes the VirtualPet object with the given name from the shelter.
+     *
+     * @param name The name of the VirtualPet object to be removed.
+     * @return The VirtualPet object that was removed from the shelter.
+     */
+    public VirtualPet adoptPet(String name) {
+        return pets.remove(name);
+    }
+
+    /**
+     * Calls the feed() method on all VirtualPet objects in the shelter.
+     */
+    public void feedAllPets() {
+        for (VirtualPet pet : pets.values()) {
+            pet.feed();
+        }
+    }
+
+    /**
+     * Calls the water() method on all VirtualPet objects in the shelter.
+     */
+    public void waterAllPets() {
+        for (VirtualPet pet : pets.values()) {
+            pet.water();
+        }
+    }
+
+    /**
+     * Calls the play() method on all VirtualPet objects in the shelter.
+     */
+    public void playWithAllPets() {
+        for (VirtualPet pet : pets.values()) {
+            pet.play();
+        }
+    }
+
+    /**
+     * Calls the tick() method on all VirtualPet objects in the shelter.
+     */
+    public void tickAllPets() {
+        for (VirtualPet pet : pets.values()) {
+            pet.tick();
+        }
+    }
+}
