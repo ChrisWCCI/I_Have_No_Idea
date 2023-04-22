@@ -234,4 +234,24 @@ public class VirtualPet {
 
         System.out.println();
     }
+
+    /**
+     * Get the amount by which a pet's status is
+     * changed when interacting with them.
+     * 
+     * @return The amount by which a pet's status is changed.
+     */
+    public int getStatChangeAmt() {
+        return statChangeAmt;
+    }
+
+    /**
+     * Get the multiplier used to calculate how much a
+     * pet's status is changed when interacting with them.
+     * 
+     * @return The multiplier used to calculate how much a pet's status is changed.
+     */
+    public int getStatChangeMultiplier() {
+        return statChangeMultiplier;
+    }
 }
