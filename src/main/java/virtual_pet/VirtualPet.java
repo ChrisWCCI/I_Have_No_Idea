@@ -119,8 +119,6 @@ public class VirtualPet {
 
     /**
      * Lower the pet's hunger level by a certain amount.
-     * 
-     * @param amount The amount to lower the hunger level by.
      */
     public void feed() {
         hungerLevel -= statChangeAmt * statChangeMultiplier;
@@ -131,8 +129,6 @@ public class VirtualPet {
 
     /**
      * Lower the pet's thirst level by a certain amount.
-     * 
-     * @param amount The amount to lower the thirst level by.
      */
     public void water() {
         thirstLevel -= statChangeAmt * statChangeMultiplier;
@@ -144,13 +140,13 @@ public class VirtualPet {
     /**
      * Lowers the pet's boredom level by default amount.
      * Also increases hunger and thirst levels by default amount.
-     * 
-     * @param amount The amount to lower the boredom level by.
      */
     public void play() {
-        boredomLevel -= statChangeAmt * statChangeMultiplier;
-        if (boredomLevel < minStatLevel) {
-            boredomLevel = minStatLevel;
+        if (ran.nextBoolean()) {
+            boredomLevel -= statChangeAmt * statChangeMultiplier;
+            if (boredomLevel < minStatLevel) {
+                boredomLevel = minStatLevel;
+            }
         }
     }
 
