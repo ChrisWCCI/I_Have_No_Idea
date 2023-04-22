@@ -254,4 +254,5 @@ public class VirtualPet {
     public int getStatChangeMultiplier() {
         return statChangeMultiplier;
     }
+
 }

@@ -29,9 +29,9 @@ class VirtualPetShelterTest {
         int initialHunger2 = pet2.getHungerLevel();
         int initialHunger3 = pet3.getHungerLevel();
         shelter.feedAllPets();
-        assertEquals(initialHunger1 - 20, pet1.getHungerLevel());
-        assertEquals(initialHunger2 - 20, pet2.getHungerLevel());
-        assertEquals(initialHunger3 - 20, pet3.getHungerLevel());
+        assertEquals(initialHunger1 - pet1.getStatChangeAmt() * pet1.getStatChangeMultiplier(), pet1.getHungerLevel());
+        assertEquals(initialHunger2 - pet2.getStatChangeAmt() * pet2.getStatChangeMultiplier(), pet2.getHungerLevel());
+        assertEquals(initialHunger3 - pet3.getStatChangeAmt() * pet3.getStatChangeMultiplier(), pet3.getHungerLevel());
     }
 
     @Test
