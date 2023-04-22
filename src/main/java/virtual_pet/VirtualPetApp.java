@@ -18,13 +18,13 @@ public class VirtualPetApp {
         // Game loop
         while (true) {
             // Output pet status
-            pet1.printPetStatus();
+            shelter.printAllStatuses();
 
             // Ask for user input
             System.out.println("What would you like to do?");
-            System.out.println("1. Feed the pet");
-            System.out.println("2. Give the pet some water");
-            System.out.println("3. Play with the pet");
+            System.out.println("1. Feed the pets");
+            System.out.println("2. Give the pets some water");
+            System.out.println("3. Play with the pets");
             System.out.println("4. Adopt a pet");
             System.out.println("5. Admit a pet");
             System.out.println("6. Do nothing");

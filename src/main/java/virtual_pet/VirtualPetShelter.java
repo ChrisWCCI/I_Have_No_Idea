@@ -90,4 +90,19 @@ public class VirtualPetShelter {
         System.out.println("The pets look at you confused...");
         this.tickAllPets();
     }
+
+    /**
+     * Print out the written text
+     * status for all the pets.
+     */
+    public void printAllStatuses() {
+        System.out.println("All pets' status:");
+        System.out.println("Name\t|Hunger\t|Thirst\t|Boredom");
+        System.out.println("---------------------------------------");
+        for (VirtualPet pet : pets.values()) {
+            System.out.println(pet.getName() + "\t|" + pet.getHungerLevel() + "\t|"
+                    + pet.getThirstLevel() + "\t|" + pet.getBoredomLevel());
+        }
+        System.out.println();
+    }
 }
